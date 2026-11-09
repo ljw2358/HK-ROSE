@@ -527,7 +527,7 @@
 
     <!-- 바디 컨텐츠 영역 -->
     <main class="app-content">
-        
+       
         <!-- Tab 1: 메인 홈 허브 -->
         <div id="tab-home" class="tab-content active">
             <div style="margin-bottom: 14px;">
@@ -585,7 +585,7 @@
         <!-- Tab 2: 개인 자산 대시보드 -->
         <div id="tab-dashboard" class="tab-content">
             <button class="back-btn" onclick="switchTab('home')">← <span id="btBack1">메인으로 돌아가기</span></button>
-            
+           
             <div class="balance-card">
                 <div class="balance-title" id="balTitle">총 보유 자산 (KRW 환산)</div>
                 <div class="balance-amount">₩ 128,450,000</div>
@@ -614,7 +614,7 @@
             <button class="back-btn" onclick="switchTab('home')">← <span id="btBack2">메인으로 돌아가기</span></button>
             <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;" id="netMainTitle">💱 10대 분산 연동망 (각 10대 프로세스)</div>
             <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;" id="netMainSub">아래 연동망을 선택하면 각각의 상세 프로세스가 펼쳐집니다.</p>
-            
+           
             <div class="network-grid">
                 <div class="network-item" onclick="openSubProcesses(1)">🔗 1. 지갑 연결</div>
                 <div class="network-item" onclick="openSubProcesses(2)">💸 2. 송금하기</div>
@@ -651,7 +651,7 @@
         <div id="tab-nav" class="tab-content">
             <button class="back-btn" onclick="switchTab('home')">← <span id="btBack4">메인으로 돌아가기</span></button>
             <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;" id="navHubTitle">🧭 HK 네비게이터 허브</div>
-            
+           
             <div class="card" onclick="alert('📄 백서 v3.1 상세 40선: 글로벌 웹3 금융 표준 및 중도 해지 시 원금 100% 보장 규정이 로드되었습니다.')">
                 <div style="font-size: 0.9rem; font-weight: 700; color: #a78bfa; margin-bottom: 2px;" id="n1Title">📄 백서 (Whitepaper v3.1 상세 40선)</div>
                 <div style="font-size: 0.78rem; color: var(--text-muted);" id="n1Sub">글로벌 웹3 금융 표준 및 아키텍처 명세</div>
@@ -680,7 +680,7 @@
                 <button class="modal-close" onclick="closePopupModal()">✕</button>
             </div>
             <div class="modal-desc" id="popDesc">상세 프로세스 실행 모달입니다.</div>
-            
+           
             <div id="popupDynamicContent"></div>
 
             <button class="btn-primary" id="popBtn" onclick="submitPopupAction()">승인 및 실행</button>
@@ -1270,7 +1270,7 @@
         activeNetworkId = id;
         const netData = networkProcessData[id];
         document.getElementById('subProcHeaderTitle').textContent = netData.name + " (세부 프로세스)";
-        
+       
         const container = document.getElementById('subProcessListContainer');
         container.innerHTML = '';
 
