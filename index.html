@@ -3,484 +3,713 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK WorldBank | Global Digital Banking & Quantum Security Hub (Complete Enterprise Edition)</title>
-    <!-- Tailwind CSS CDN -->
+    <title>HK WORLDBANK v10.4 Enterprise Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#050b14',
-                        panelBg: '#0f172a',
-                        borderCol: '#1e293b',
-                        accentCyan: '#06b6d4',
-                        accentEmerald: '#10b981',
-                        accentPurple: '#8b5cf6',
-                        accentPink: '#ec4899',
-                        accentAmber: '#f59e0b'
+                        hkdark: '#0B132B',
+                        hkcard: '#1C2541',
+                        hkblue: '#3A506B',
+                        hkgold: '#F4D35E',
+                        hkgreen: '#4BB543',
+                        hkaccent: '#00F0FF'
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-darkBg text-white font-sans min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+<body class="bg-hkdark text-white font-sans min-h-screen flex flex-col justify-between selection:bg-hkaccent selection:text-hkdark">
 
-    <!-- 상단 컬러풀 헤더 바 (시안 반영) -->
-    <header class="bg-panelBg/95 backdrop-blur-md border-b border-cyan-500/30 px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-2xl">
+    <!-- TOP HEADER -->
+    <header class="bg-hkcard/80 backdrop-blur-md border-b border-hkblue/40 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-cyan-400 via-purple-500 to-pink-500 flex items-center justify-center font-black text-black shadow-lg shadow-cyan-500/20 animate-pulse">
-                HK
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-hkaccent flex items-center justify-center shadow-lg shadow-hkaccent/20">
+                <i class="fa-solid fa-building-columns text-hkdark text-lg font-bold"></i>
             </div>
             <div>
-                <span class="text-xs font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400 block" id="headerBrand">HK WORLDBANK</span>
-                <span class="text-[10px] font-bold text-pink-400" id="headerChairman">✨ 회장 이재완 (혜공) | 개인사업자 최고경영</span>
+                <h1 class="font-bold text-lg tracking-wider text-white">HK WORLD BANK</h1>
+                <p class="text-xs text-hkaccent font-mono">SECURE GATEWAY v10.4 - ENTERPRISE EDITION</p>
             </div>
         </div>
         <div class="flex items-center space-x-4">
-            <select id="langSelect" onchange="changeGlobalLanguage(this.value)" class="bg-darkBg text-cyan-300 text-xs px-4 py-2 rounded-xl border border-cyan-500/40 focus:outline-none focus:border-pink-500 transition font-black shadow-inner">
-                <option value="ko">🇰🇷 한국어 (60개국어 구동)</option>
-                <option value="en">🌍 English (60 Langs)</option>
-                <option value="ja">🇯🇵 日本語 (Japanese)</option>
-                <option value="zh">🇨🇳 中文 (Chinese)</option>
-                <option value="es">🇪🇸 Español (Spanish)</option>
-                <option value="fr">🇫🇷 Français (French)</option>
-                <option value="de">🇩🇪 Deutsch (German)</option>
-                <option value="ru">🇷🇺 Русский (Russian)</option>
-                <option value="ar">🇸🇦 العربية (Arabic)</option>
-                <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
-            </select>
+            <!-- 60 Languages Selector -->
+            <div class="relative">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-hkdark border border-hkblue/60 text-xs rounded-lg px-3 py-2 text-white focus:outline-none focus:border-hkaccent font-mono">
+                    <option value="ko">🇰🇷 한국어 (Korean)</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="zh">🇨🇳 中文 (Chinese)</option>
+                    <option value="ja">🇯🇵 日本語 (Japanese)</option>
+                    <option value="ru">🇷🇺 Русский (Russian)</option>
+                    <option value="vi">🇻🇳 Tiếng Việt (Vietnamese)</option>
+                    <option value="th">🇹🇭 ไทย (Thai)</option>
+                    <option value="id">🇮🇩 Bahasa Indonesia</option>
+                    <option value="ar">🇵🇸 العربية (Palestine/Arabic)</option>
+                    <option value="de">🇩🇪 Deutsch (German)</option>
+                    <option value="it">🇮🇹 Italiano (Italian)</option>
+                    <option value="fr">🇫🇷 Français (French)</option>
+                    <option value="ng">🇳🇬 Pidgin (Nigeria)</option>
+                    <option value="cm">🇨🇲 Camfranglais (Cameroon)</option>
+                    <option value="za">🇿🇦 isiZulu (South Africa)</option>
+                    <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+                    <option value="es">🇪🇸 Español (Spanish)</option>
+                    <option value="br">🇧🇷 Português (Brazil)</option>
+                    <option value="ua">🇺🇦 Українська (Ukraine)</option>
+                    <option value="pk">🇵🇰 اردو (Pakistan)</option>
+                    <option value="bn">🇧🇩 বাংলা (Bengali)</option>
+                    <option value="uz">🇺🇿 Oʻzbekcha (Uzbekistan)</option>
+                    <option value="sd">🇸🇩 العربية (Sudan)</option>
+                    <option value="tz">🇹🇿 Kiswahili (Tanzania)</option>
+                    <option value="tr">🇹🇷 Türkçe (Turkish)</option>
+                    <option value="fa">🇮🇷 فارسی (Persian)</option>
+                    <option value="pl">🇵🇱 Polski (Polish)</option>
+                    <option value="nl">🇳🇱 Nederlands (Dutch)</option>
+                    <option value="sv">🇸🇪 Svenska (Swedish)</option>
+                    <option value="el">🇬🇷 Ελληνικά (Greek)</option>
+                    <option value="he">🇮🇱 עברית (Hebrew)</option>
+                    <option value="ms">🇲🇾 Bahasa Melayu (Malay)</option>
+                    <option value="tl">🇵🇭 Tagalog (Philippines)</option>
+                    <option value="km">🇰🇭 ភាសាខ្មែរ (Cambodia)</option>
+                    <option value="lo">🇱🇦 ລາວ (Laos)</option>
+                    <option value="my">🇲🇲 မြန်မာစာ (Myanmar)</option>
+                    <option value="ne">🇳🇵 नेपाली (Nepal)</option>
+                    <option value="si">🇱🇰 සිංහල (Sri Lanka)</option>
+                    <option value="et">🇪🇪 Eesti (Estonian)</option>
+                    <option value="lv">🇱🇻 Latviešu (Latvian)</option>
+                    <option value="lt">🇱🇹 Lietuvių (Lithuanian)</option>
+                    <option value="fi">🇫🇮 Suomi (Finnish)</option>
+                    <option value="da">🇩🇰 Dansk (Danish)</option>
+                    <option value="no">🇳🇴 Norsk (Norwegian)</option>
+                    <option value="cs">🇨🇿 Čeština (Czech)</option>
+                    <option value="sk">🇸🇰 Slovenčina (Slovak)</option>
+                    <option value="hu">🇭🇺 Magyar (Hungarian)</option>
+                    <option value="ro">🇷🇴 Română (Romanian)</option>
+                    <option value="bg">🇧🇬 Български (Bulgarian)</option>
+                    <option value="hr">🇭🇷 Hrvatski (Croatian)</option>
+                    <option value="sr">🇷🇸 Српски (Serbian)</option>
+                    <option value="sl">🇸🇮 Slovenščina (Slovenian)</option>
+                    <option value="sq">🇦🇱 Shqip (Albanian)</option>
+                    <option value="mk">🇲🇰 Македонски (Macedonian)</option>
+                    <option value="hy">🇦🇲 Հայերեն (Armenian)</option>
+                    <option value="ka">🇬🇪 ქართული (Georgian)</option>
+                    <option value="az">🇦🇿 Azərbaycan (Azerbaijani)</option>
+                    <option value="kk">🇰🇿 Қазақша (Kazakh)</option>
+                    <option value="mn">🇲🇳 Монгол (Mongolian)</option>
+                    <option value="is">🇮🇸 Íslenska (Icelandic)</option>
+                </select>
+            </div>
+            <div id="userBadge" class="hidden text-xs bg-hkblue/50 border border-hkaccent/40 px-3 py-1.5 rounded-full font-mono text-hkaccent">
+                <i class="fa-solid fa-user-shield mr-1"></i> <span data-i18n="badge_user">회장님 (혜공 형님) 연결됨</span>
+            </div>
         </div>
     </header>
 
-    <!-- 메인 뷰포트 영역 -->
-    <main class="flex-1 max-w-4xl mx-auto w-full p-6 space-y-6 pb-24">
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
 
-        <!-- [SCREEN 1] 앱 입출입 보안 게이트웨이 -->
-        <div id="screenGateway" class="max-w-xl mx-auto bg-panelBg p-8 rounded-3xl shadow-2xl border border-cyan-500/30 mt-12 space-y-6 relative overflow-hidden">
-            <div class="absolute -right-10 -top-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- ================= SCREEN 1: SECURE GATEWAY ================= -->
+        <section id="screen1" class="space-y-6">
+            <div class="text-center space-y-2 mb-8">
+                <h2 class="text-2xl font-black text-white tracking-wide" data-i18n="s1_title">HK WORLDBANK 보안 게이트웨이</h2>
+                <p class="text-sm text-gray-400 max-w-2xl mx-auto" data-i18n="s1_desc">
+                    회장님(혜공 형님) 전용 10대 분산 연동망 및 메가클러스터 자산 관리를 위한 필수 보안 인증 단계입니다. 아래 인증 수단을 선택하여 접속하십시오.
+                </p>
+            </div>
 
-            <div class="text-center space-y-2 relative z-10">
-                <div class="w-16 h-16 bg-darkBg rounded-2xl mx-auto flex items-center justify-center text-cyan-400 border border-cyan-500/40 shadow-lg shadow-cyan-500/10">
-                    <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.115 6.845l.209-.414m-5.485-9.155A4 4 0 0112 7" />
-                    </svg>
+            <!-- Option 1: Biometric Auth (Fingerprint) -->
+            <div onclick="loginByFingerprint()" class="bg-hkcard border-2 border-hkblue hover:border-hkaccent transition-all duration-300 rounded-2xl p-6 cursor-pointer group shadow-xl">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 rounded-xl bg-hkgold/20 border border-hkgold/50 flex items-center justify-center text-hkgold text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-hkaccent transition-colors" data-i18n="s1_bio_title">지문 우선 잠금 해제 (Biometric Auth)</h3>
+                            <p class="text-xs text-gray-400 mt-1" data-i18n="s1_bio_desc">모바일 기기 연동 실시간 생체 지문 인식 및 원터치 인증 시스템 (손폰 QR 전용)</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-hkaccent text-xl"></i>
                 </div>
-                <h1 id="txtGatewayTitle" class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">HK WorldBank 보안 게이트웨이</h1>
-                <p id="txtGatewaySub" class="text-xs text-gray-300 leading-relaxed">24개 단어 복구 구절 입력 또는 지문 인식을 통해 안전하게 전체 금융 서비스 및 10대 분산 연동망에 입장합니다.</p>
             </div>
 
-            <!-- 24개 단어 입력란 & 지문 우선 지원 표시 -->
-            <div class="bg-darkBg p-4 rounded-2xl border border-borderCol space-y-2 relative z-10">
-                <label class="text-[11px] font-black text-amber-400 tracking-wider block flex items-center justify-between">
-                    <span id="lblPassphrase">🔑 24개 단어 비밀구절 (PASSPHRASE)</span>
-                    <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30" id="lblFingerprintBadge">👆 지문 우선 지원</span>
-                </label>
-                <textarea rows="3" placeholder="word1 word2 word3 ... word24 (공백 구분 24개 단어)" class="w-full bg-panelBg p-3.5 rounded-xl text-xs text-cyan-200 border border-cyan-500/30 focus:outline-none focus:border-pink-500 transition resize-none font-mono"></textarea>
-            </div>
-
-            <!-- 인증 버튼 그룹 (지문 잠금해제 & 개적자 아닌 분용 둘러보기) -->
-            <div class="space-y-3 pt-2 relative z-10">
-                <button onclick="enterHub()" class="w-full py-4 bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 text-black font-black rounded-2xl shadow-lg shadow-cyan-500/20 hover:opacity-95 transition text-sm flex items-center justify-center space-x-2">
-                    <span id="btnFingerprint">🔒 지문 인식 우선 잠금 해제</span>
+            <!-- Option 2: 24 Passphrase -->
+            <div class="bg-hkcard border-2 border-hkblue rounded-2xl p-6 shadow-xl space-y-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 rounded-xl bg-hkgreen/20 border border-hkgreen/50 flex items-center justify-center text-hkgreen text-2xl">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white" data-i18n="s1_key_title">비밀번호 및 복구 구문 잠금 해제</h3>
+                        <p class="text-xs text-gray-400 mt-1" data-i18n="s1_key_desc">24개 단어 복구 구문 (PASSPHRASE) 입력 기반 강력한 보안 접속</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 md:grid-cols-6 gap-2 pt-2">
+                    <script>
+                        for(let i=1; i<=24; i++) {
+                            document.write(`<input type="password" placeholder="word${i}" class="bg-hkdark border border-hkblue/50 rounded px-2 py-1.5 text-xs text-center text-hkaccent focus:border-hkaccent outline-none passphrase-input" data-index="${i}">`);
+                        }
+                    </script>
+                </div>
+                <button onclick="loginByPassphrase()" class="w-full bg-gradient-to-r from-blue-600 to-hkaccent text-hkdark font-bold py-3 rounded-xl shadow-lg hover:opacity-90 transition-opacity text-sm flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-shield-check"></i>
+                    <span data-i18n="s1_key_btn">구문 검증 및 대시보드 진입</span>
                 </button>
-                <button onclick="enterHub()" class="w-full py-3.5 bg-darkBg text-pink-400 font-bold rounded-2xl text-xs border border-pink-500/40 hover:bg-pink-500/10 transition flex items-center justify-center space-x-2">
-                    <span id="btnExplore">👁️ 플랫폼 자유 둘러보기 (개적자 아님)</span>
+            </div>
+
+            <!-- Option 3: Guest Preview Access -->
+            <div onclick="loginAsGuest()" class="bg-hkcard/60 border border-hkblue/40 hover:border-hkblue transition-all duration-300 rounded-2xl p-5 cursor-pointer group">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 text-xl">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white group-hover:text-blue-300 transition-colors" data-i18n="s1_guest_title">둘러보기 (Guest Preview Access)</h3>
+                            <p class="text-xs text-gray-400 mt-0.5" data-i18n="s1_guest_desc">개척자가 아닌 분: 인증 없이 플랫폼 대시보드 및 네비게이터 구조 미리보기 체험</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-blue-300 text-lg"></i>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-gray-500 pt-4 border-t border-hkblue/20 flex justify-between">
+                <span data-i18n="footer_auth">발신: HK 그룹 회장 이재완 (혜공)</span>
+                <span>HK WorldBank Secure Core v10.4</span>
+            </div>
+        </section>
+
+        <!-- ================= SCREEN 2: HK INTEGRATED MAIN HUB ================= -->
+        <section id="screen2" class="hidden space-y-6">
+            <div class="bg-gradient-to-r from-hkcard to-hkblue/40 border border-hkblue rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-black text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-hubnet text-hkaccent"></i>
+                        <span data-i18n="s2_title">HK 통합 메인 허브</span>
+                    </h2>
+                    <p class="text-xs text-gray-300 mt-1" data-i18n="s2_subtitle">5대 핵심 기능 및 에코시스템 바로가기 (테스트 파이 연동 완료)</p>
+                </div>
+                <button onclick="logout()" class="mt-4 md:mt-0 bg-red-500/20 border border-red-500/40 text-red-300 hover:bg-red-500/30 text-xs px-4 py-2 rounded-xl transition-colors">
+                    <i class="fa-solid fa-power-off mr-1"></i> <span data-i18n="btn_logout">보안 잠금 및 로그아웃</span>
                 </button>
             </div>
-        </div>
 
-        <!-- [SCREEN 2] HK 통합 메인 허브 (모니터 시안 반영 카드형 레이아웃) -->
-        <div id="screenHub" class="space-y-6 hidden">
-            
-            <!-- 허브 상단 안내 타이틀 -->
-            <div class="text-center space-y-1 py-2">
-                <h2 class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400" id="hubMainTitle">HK 통합 메인 허브</h2>
-                <p class="text-xs text-gray-400" id="hubMainSub">5대 핵심 기능 및 에코시스템 바로가기</p>
+            <!-- 5 Hub Navigation Cards -->
+            <div class="space-y-4">
+                <!-- 1. Personal Asset Dashboard -->
+                <div onclick="openModule('asset')" class="bg-hkcard border border-hkblue hover:border-hkaccent transition-all rounded-2xl p-5 cursor-pointer group shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-hkgold/20 text-hkgold flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-wallet"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base group-hover:text-hkaccent" data-i18n="m1_title">1. 개인 자산 대시보드</h3>
+                                <p class="text-xs text-gray-400" data-i18n="m1_desc">총 보유 자산, PI코인 보유량(실시간 레저 동기화), 실시간 누적 이자 관리</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-400 group-hover:text-hkaccent"></i>
+                    </div>
+                </div>
+
+                <!-- 2. Trade, Deposit & 10 Distributed Networks -->
+                <div onclick="openModule('trade')" class="bg-hkcard border border-hkblue hover:border-hkaccent transition-all rounded-2xl p-5 cursor-pointer group shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-hkgreen/20 text-hkgreen flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base group-hover:text-hkaccent" data-i18n="m2_title">2. 사고 팔고 예금하기 (10대 분산 연동망)</h3>
+                                <p class="text-xs text-gray-400" data-i18n="m2_desc">지갑연결, 송금, 결제, 예치, 보상, 기본소득, 토큰스왑, DEX 스왑, LP 스테이킹, PI 수량</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-400 group-hover:text-hkaccent"></i>
+                    </div>
+                </div>
+
+                <!-- 3. Customer Service AGI Bbini (60 Languages) -->
+                <div onclick="openModule('agi')" class="bg-hkcard border border-hkblue hover:border-hkaccent transition-all rounded-2xl p-5 cursor-pointer group shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base group-hover:text-hkaccent" data-i18n="m3_title">3. 고객센터 AGI 삐니 (60개국어 AI 봇)</h3>
+                                <p class="text-xs text-gray-400" data-i18n="m3_desc">한국어, 영어, 중국어, 일본어, 러시아어, 아랍어, 스페인어 등 뼈속까지 변환되는 60개국어 지원</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-400 group-hover:text-hkaccent"></i>
+                    </div>
+                </div>
+
+                <!-- 4. Navigator (Whitepaper, FATF, 8 Industries) -->
+                <div onclick="openModule('navigator')" class="bg-hkcard border border-hkblue hover:border-hkaccent transition-all rounded-2xl p-5 cursor-pointer group shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-compass"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base group-hover:text-hkaccent" data-i18n="m4_title">4. 네비게이터 (백서, FATF, 21개국법 & 8대 산업)</h3>
+                                <p class="text-xs text-gray-400" data-i18n="m4_desc">백서 100선, FAQ 20선, 3대 Policies, 실시간 제재 리스트 및 8대 전략 산업 매칭</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-400 group-hover:text-hkaccent"></i>
+                    </div>
+                </div>
+
+                <!-- 5. YouTube & TikTok (5th Hub Position) -->
+                <div onclick="openModule('media')" class="bg-hkcard border border-hkblue hover:border-hkaccent transition-all rounded-2xl p-5 cursor-pointer group shadow-lg ring-2 ring-hkaccent/50">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base group-hover:text-hkaccent flex items-center space-x-2">
+                                    <span data-i18n="m5_title">5. 유튜브와 틱톡 채널 연동 방송 센터</span>
+                                    <span class="text-[10px] bg-red-500 text-white px-2 py-0.5 rounded-full font-mono" data-i18n="m5_badge">5번째 허브 배치</span>
+                                </h3>
+                                <p class="text-xs text-gray-400" data-i18n="m5_desc">혜공 형님(@Hyekong2026 / @hyekong2026) 미디어 에코시스템 및 실시간 스트리밍</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-gray-400 group-hover:text-hkaccent"></i>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- 시안 스타일의 카드형 메뉴 목록 (클릭 시 해당 탭으로 이동) -->
-            <div id="hubCardList" class="space-y-3.5">
-                <div onclick="switchTab(1)" class="bg-panelBg hover:bg-panelBg/80 p-5 rounded-2xl border border-cyan-500/30 flex items-center justify-between cursor-pointer transition shadow-lg group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">📌</div>
-                        <div>
-                            <h3 class="text-sm font-black text-cyan-300 group-hover:text-white transition" id="card1Title">개인 자산 대시보드</h3>
-                            <p class="text-xs text-gray-400" id="card1Sub">실시간 잔액 및 PI코인·누적 이자 관리</p>
-                        </div>
-                    </div>
-                    <span class="text-cyan-400 font-bold">˃</span>
-                </div>
-
-                <div onclick="switchTab(2)" class="bg-panelBg hover:bg-panelBg/80 p-5 rounded-2xl border border-emerald-500/30 flex items-center justify-between cursor-pointer transition shadow-lg group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">⚡</div>
-                        <div>
-                            <h3 class="text-sm font-black text-emerald-300 group-hover:text-white transition" id="card2Title">사고 팔고 예금하기</h3>
-                            <p class="text-xs text-gray-400" id="card2Sub">10대 분산 연동망 상세 프로세스 실행</p>
-                        </div>
-                    </div>
-                    <span class="text-emerald-400 font-bold">˃</span>
-                </div>
-
-                <div onclick="switchTab(3)" class="bg-panelBg hover:bg-panelBg/80 p-5 rounded-2xl border border-purple-500/30 flex items-center justify-between cursor-pointer transition shadow-lg group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">🤖</div>
-                        <div>
-                            <h3 class="text-sm font-black text-purple-300 group-hover:text-white transition" id="card3Title">고객센터 AGI 삐니</h3>
-                            <p class="text-xs text-gray-400" id="card3Sub">60개국어 뼈속까지 변환 AI 삐니 실시간 구동</p>
-                        </div>
-                    </div>
-                    <span class="text-purple-400 font-bold">˃</span>
-                </div>
-
-                <div onclick="switchTab(4)" class="bg-panelBg hover:bg-panelBg/80 p-5 rounded-2xl border border-amber-500/30 flex items-center justify-between cursor-pointer transition shadow-lg group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">🧭</div>
-                        <div>
-                            <h3 class="text-sm font-black text-amber-300 group-hover:text-white transition" id="card4Title">내비게이터 (메뉴 보기)</h3>
-                            <p class="text-xs text-gray-400" id="card4Sub">백서 100선·FAQ 20선·3대 Policies·FATF·21개국법·8대 산업</p>
-                        </div>
-                    </div>
-                    <span class="text-amber-400 font-bold">˃</span>
-                </div>
-
-                <div onclick="switchTab(5)" class="bg-panelBg hover:bg-panelBg/80 p-5 rounded-2xl border border-pink-500/30 flex items-center justify-between cursor-pointer transition shadow-lg group">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold">🎥</div>
-                        <div>
-                            <h3 class="text-sm font-black text-pink-300 group-hover:text-white transition" id="card5Title">유튜브와 틱톡 채널 연동</h3>
-                            <p class="text-xs text-gray-400" id="card5Sub">HK 통합 메인 허브 5번째 방송 센터</p>
-                        </div>
-                    </div>
-                    <span class="text-pink-400 font-bold">˃</span>
+        <!-- ================= MODULE MODALS / VIEWS ================= -->
+        <div id="modalContainer" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-hkcard border border-hkblue rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative space-y-6">
+                <button onclick="closeModule()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div id="modalContent">
+                    <!-- Dynamic Module Content -->
                 </div>
             </div>
-
-            <!-- 개별 탭 상세 컨텐츠 영역 (상세 내역 완벽 구동) -->
-            <div id="detailedContentArea" class="space-y-6 pt-4">
-                
-                <!-- 탭 1 상세: 개인 자산 대시보드 -->
-                <div id="tabContent1" class="space-y-6 hidden">
-                    <div class="bg-panelBg p-6 rounded-3xl border border-cyan-500/30 shadow-2xl space-y-4">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-sm font-black text-cyan-400" id="detDashTitle">📌 개인 자산 대시보드 (총 보유 자산, PI코인 보유량, 실시간 누적 이자)</h3>
-                            <button onclick="backToHub()" class="text-xs bg-darkBg text-cyan-300 px-3 py-1 rounded-lg border border-cyan-500/30 font-bold">⬅️ 허브로 돌아가기</button>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-darkBg p-5 rounded-2xl border border-borderCol">
-                                <p class="text-xs text-gray-400">총 보유 자산 (Total Assets)</p>
-                                <p class="text-2xl font-black mt-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">₩ 128,450,000</p>
-                                <p class="text-[11px] text-emerald-400 mt-2 font-bold">📈 원화 및 글로벌 자산 실시간 환산</p>
-                            </div>
-                            <div class="bg-darkBg p-5 rounded-2xl border border-borderCol">
-                                <p class="text-xs text-gray-400">PI코인 보유량 (Pi Coin Holdings)</p>
-                                <p class="text-2xl font-black mt-2 text-amber-400">1,450.00 Pi</p>
-                                <p class="text-[11px] text-gray-300 mt-2">적용 기준가: <strong class="text-cyan-400">87.16원 / Pi</strong></p>
-                            </div>
-                            <div class="bg-darkBg p-5 rounded-2xl border border-borderCol">
-                                <p class="text-xs text-gray-400">실시간 누적 이자 (Real-time Yield)</p>
-                                <p class="text-2xl font-black mt-2 text-emerald-400">+12.548856 Pi</p>
-                                <p class="text-[11px] text-gray-300 mt-2">수시 파킹 APY: <strong class="text-amber-400">8.5%</strong> 복리 적용</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 탭 2 상세: 사고 팔고 예금하기 (10대 분산 연동망 상세 내역) -->
-                <div id="tabContent2" class="space-y-6 hidden">
-                    <div class="bg-panelBg p-6 rounded-3xl border border-emerald-500/30 shadow-2xl space-y-4">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-sm font-black text-emerald-400" id="detTradeTitle">⚡ 사고 팔고 예금하기 (10대 분산 연동망 상세 프로세스)</h3>
-                            <button onclick="backToHub()" class="text-xs bg-darkBg text-emerald-300 px-3 py-1 rounded-lg border border-emerald-500/30 font-bold">⬅️ 허브로 돌아가기</button>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                            <div class="bg-darkBg p-4 rounded-2xl border border-cyan-500/30 space-y-1">
-                                <span class="text-[10px] text-cyan-400 font-bold">01. 지갑 연결 (Wallet Connect)</span>
-                                <h4 class="font-black text-cyan-200">Quantum Key 및 지문 생체 보안 연동</h4>
-                                <p class="text-[11px] text-gray-400">분산원장과 실시간 동기화되는 마스터 암호화 지갑 세션 구축.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-cyan-500/30 space-y-1">
-                                <span class="text-[10px] text-cyan-400 font-bold">02. 송금 (Transfer)</span>
-                                <h4 class="font-black text-cyan-200">제로페이 및 온체인 즉시 송금</h4>
-                                <p class="text-[11px] text-gray-400">수수료 제로 및 글로벌 지오 로케이션 기반 초고속 송금 프로세스.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-cyan-500/30 space-y-1">
-                                <span class="text-[10px] text-cyan-400 font-bold">03. 결제 (Payment)</span>
-                                <h4 class="font-black text-cyan-200">글로벌 온·오프라인 스마트 결제</h4>
-                                <p class="text-[11px] text-gray-400">Pi 및 HK 토큰을 활용한 상점 실시간 원화 정산 결제망.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-cyan-500/30 space-y-1">
-                                <span class="text-[10px] text-cyan-400 font-bold">04. 예치 (Deposit)</span>
-                                <h4 class="font-black text-cyan-200">에스크로 안전 자산 예치</h4>
-                                <p class="text-[11px] text-gray-400">스마트 계약 기반 자산 보호 및 투명한 담보 예치 시스템.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-cyan-500/30 space-y-1">
-                                <span class="text-[10px] text-cyan-400 font-bold">05. 보상 (Reward)</span>
-                                <h4 class="font-black text-cyan-200">생태계 기여도 리워드 정산</h4>
-                                <p class="text-[11px] text-gray-400">네트워크 활성화 및 콘텐츠 기여에 따른 실시간 토큰 보상 지급.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-purple-500/30 space-y-1">
-                                <span class="text-[10px] text-purple-400 font-bold">06. 기본소득 (UBI)</span>
-                                <h4 class="font-black text-purple-200">플랫폼 순수익 30% 환원 분배</h4>
-                                <p class="text-[11px] text-gray-400">전 세계 빈곤 퇴치 및 사용자 대상 유니버설 베이직 인컴 자동 지급.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-emerald-500/30 space-y-1">
-                                <span class="text-[10px] text-emerald-400 font-bold">07. 토큰스왑 (Token Swap)</span>
-                                <h4 class="font-black text-emerald-200">USDT ⇄ Pi 실시간 환산 교환</h4>
-                                <p class="text-[11px] text-gray-400">테더(1,357원) 및 파이(87.16원) 기준가 기반 즉시 스왑.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-emerald-500/30 space-y-1">
-                                <span class="text-[10px] text-emerald-400 font-bold">08. DEX 스왑 (AMM Pool)</span>
-                                <h4 class="font-black text-emerald-200">슬리피지 최소화 오더북 체결</h4>
-                                <p class="text-[11px] text-gray-400">분산형 유동성 풀(LP) 기반 최저 가스피(0.001 Pi) 자동 매칭.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-amber-500/30 space-y-1">
-                                <span class="text-[10px] text-amber-400 font-bold">09. LP 스테이킹 (Staking)</span>
-                                <h4 class="font-black text-amber-200">수시 입출금 파킹 (APY 8.5%)</h4>
-                                <p class="text-[11px] text-gray-400">만기 전 해지 시에도 즉시 파킹 이자율로 전환되는 유연한 예치.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-pink-500/30 space-y-1">
-                                <span class="text-[10px] text-pink-400 font-bold">10. PI 수량 (Balance Calc)</span>
-                                <h4 class="font-black text-pink-200">실시간 보유량 및 가치 산출</h4>
-                                <p class="text-[11px] text-gray-400">지갑 내 모든 파이 네트워크 코어 수량의 실시간 원화 가치 평가.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 탭 3 상세: AGI 삐니 -->
-                <div id="tabContent3" class="space-y-6 hidden">
-                    <div class="bg-panelBg p-8 rounded-3xl border border-purple-500/30 space-y-6 text-center shadow-2xl relative">
-                        <div class="flex justify-between items-center">
-                            <span></span>
-                            <button onclick="backToHub()" class="text-xs bg-darkBg text-purple-300 px-3 py-1 rounded-lg border border-purple-500/30 font-bold">⬅️ 허브로 돌아가기</button>
-                        </div>
-                        <div class="w-16 h-16 bg-gradient-to-tr from-purple-600 to-pink-500 text-white rounded-2xl mx-auto flex items-center justify-center font-black text-sm shadow-lg">🤖</div>
-                        <h3 class="text-lg font-black text-purple-300" id="agiTitle">고객센터 AGI 삐니 (60개국어 실시간 뼈속까지 변환 코어)</h3>
-                        <p class="text-xs text-gray-300 max-w-md mx-auto leading-relaxed" id="agiSub">"안녕하세요 혜공 형님! 전용 AGI 매니저 삐니입니다. 60개국어 글로벌 로컬라이제이션 엔진을 통해 플랫폼 전체가 뼛속까지 변환되어 회장님의 자산과 컴플라이언스를 완벽 보좌하고 있습니다!"</p>
-                    </div>
-                </div>
-
-                <!-- 탭 4 상세: 내비게이터 (백서 100선, FAQ 20선, 3대 Policies, FATF 트래블룰, 21개국법, 8대 미래산업) -->
-                <div id="tabContent4" class="space-y-6 hidden">
-                    <div class="bg-panelBg p-6 rounded-3xl border border-amber-500/30 space-y-5 shadow-2xl">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-sm font-black text-amber-400">🧭 내비게이터 & 컴플라이언스 정밀 허브</h3>
-                            <button onclick="backToHub()" class="text-xs bg-darkBg text-amber-300 px-3 py-1 rounded-lg border border-amber-500/30 font-bold">⬅️ 허브로 돌아가기</button>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                            <div class="bg-darkBg p-4 rounded-2xl border border-borderCol space-y-1">
-                                <strong class="text-cyan-300 block font-black">백서 100선 & FAQ 20선</strong>
-                                <p class="text-[11px] text-gray-400">100대 핵심 프로토콜 규격 및 20가지 상세 이용 가이드.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-borderCol space-y-1">
-                                <strong class="text-purple-300 block font-black">3대 Policies & FATF 트래블룰</strong>
-                                <p class="text-[11px] text-gray-400">상장·운영·보안 3대 정책 및 실시간 제재 리스트 검증 규칙.</p>
-                            </div>
-                            <div class="bg-darkBg p-4 rounded-2xl border border-borderCol space-y-1">
-                                <strong class="text-amber-300 block font-black">21개국 디지털 자산법 매칭</strong>
-                                <p class="text-[11px] text-gray-400">글로벌 규제 당국 연계 사용자 자산 보호 보험 라이선스.</p>
-                            </div>
-                        </div>
-
-                        <!-- 8대 미래 산업 상세 -->
-                        <div class="space-y-2 pt-2">
-                            <h4 class="text-xs font-black text-pink-400">🏢 8대 미래 산업 허브 상세 스펙</h4>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-cyan-400 font-bold">울산</span><h5 class="font-black text-white mt-0.5">로봇 (Robotics)</h5><p class="text-[10px] text-gray-400">휴머노이드 및 산업용 로봇</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-cyan-400 font-bold">울산</span><h5 class="font-black text-white mt-0.5">스마트 글래스</h5><p class="text-[10px] text-gray-400">HK-NEXUS (해온·누리온·라온)</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-cyan-400 font-bold">울산</span><h5 class="font-black text-white mt-0.5">도심항공교통 (UAM)</h5><p class="text-[10px] text-gray-400">차세대 항공 모빌리티 부품</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-purple-400 font-bold">경주</span><h5 class="font-black text-white mt-0.5">퀀텀바이오</h5><p class="text-[10px] text-gray-400">양자 생명공학 및 신약 인프라</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-amber-400 font-bold">포항</span><h5 class="font-black text-white mt-0.5">인공태양 (핵융합)</h5><p class="text-[10px] text-gray-400">청정 플라즈마 에너지 센터</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-emerald-400 font-bold">포항</span><h5 class="font-black text-white mt-0.5">우주산업</h5><p class="text-[10px] text-gray-400">저궤도 위성 및 발사체 테크</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-sky-400 font-bold">통합</span><h5 class="font-black text-white mt-0.5">부품뱅크</h5><p class="text-[10px] text-gray-400">핵심 산업 정밀 부품 유통</p></div>
-                                <div class="bg-darkBg p-3.5 rounded-xl border border-borderCol"><span class="text-[9px] text-red-400 font-bold">포항</span><h5 class="font-black text-white mt-0.5">방위산업</h5><p class="text-[10px] text-gray-400">스마트 국방 및 보안 시스템</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 탭 5 상세: 유튜브와 틱톡 -->
-                <div id="tabContent5" class="space-y-6 hidden">
-                    <div class="bg-panelBg p-8 rounded-3xl border border-pink-500/30 space-y-4 text-center shadow-2xl relative">
-                        <div class="flex justify-between items-center">
-                            <span></span>
-                            <button onclick="backToHub()" class="text-xs bg-darkBg text-pink-300 px-3 py-1 rounded-lg border border-pink-500/30 font-bold">⬅️ 허브로 돌아가기</button>
-                        </div>
-                        <div class="w-16 h-16 bg-gradient-to-tr from-red-500 to-pink-500 text-white rounded-2xl mx-auto flex items-center justify-center font-black text-sm">🎥</div>
-                        <h3 class="text-lg font-black text-pink-400">유튜브와 틱톡 채널 연동 센터</h3>
-                        <p class="text-xs text-gray-300 max-w-md mx-auto">HK 통합 메인 허브 5번째 위치한 크리에이터 방송 송출 및 보상 정산 모듈입니다. (Handle: hyekong2026)</p>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
 
     </main>
 
-    <!-- 하단 고정 5대 아이콘 네비게이터 바 (시안 디자인 반영) -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-panelBg/95 backdrop-blur-md border-t border-cyan-500/30 p-2.5 flex justify-around items-center z-50 max-w-4xl mx-auto shadow-2xl">
-        <button onclick="switchTab(1)" class="flex flex-col items-center space-y-1 text-cyan-400 hover:text-white transition">
-            <span class="text-base">📌</span>
-            <span class="text-[10px] font-bold">자산</span>
-        </button>
-        <button onclick="switchTab(2)" class="flex flex-col items-center space-y-1 text-emerald-400 hover:text-white transition">
-            <span class="text-base">⚡</span>
-            <span class="text-[10px] font-bold">연동망</span>
-        </button>
-        <button onclick="switchTab(3)" class="flex flex-col items-center space-y-1 text-purple-400 hover:text-white transition">
-            <span class="text-base">🤖</span>
-            <span class="text-[10px] font-bold">삐니</span>
-        </button>
-        <button onclick="switchTab(4)" class="flex flex-col items-center space-y-1 text-amber-400 hover:text-white transition">
-            <span class="text-base">🧭</span>
-            <span class="text-[10px] font-bold">내비게이터</span>
-        </button>
-        <button onclick="switchTab(5)" class="flex flex-col items-center space-y-1 text-pink-400 hover:text-white transition">
-            <span class="text-base">🎥</span>
-            <span class="text-[10px] font-bold">유튜브·틱톡</span>
-        </button>
-    </nav>
-
-    <!-- 하단 푸터 -->
-    <footer class="text-center py-4 pb-16 border-t border-cyan-500/20 text-[11px] text-gray-400 bg-panelBg/80">
-        © 2026 HK Group Chairman Lee Jaewan (Hyekong). All Rights Reserved. | Complete Detailed Enterprise Edition
+    <!-- FOOTER BOTTOM TABS (Quick Access) -->
+    <footer class="bg-hkcard border-t border-hkblue/40 py-3 px-6">
+        <div class="max-w-4xl mx-auto flex justify-around text-xs text-gray-400">
+            <button onclick="openModule('asset')" class="flex flex-col items-center hover:text-hkaccent transition-colors">
+                <i class="fa-solid fa-wallet text-base mb-1"></i>
+                <span data-i18n="tab_asset">자산</span>
+            </button>
+            <button onclick="openModule('trade')" class="flex flex-col items-center hover:text-hkaccent transition-colors">
+                <i class="fa-solid fa-right-left text-base mb-1"></i>
+                <span data-i18n="tab_trade">환전/통장</span>
+            </button>
+            <button onclick="openModule('agi')" class="flex flex-col items-center hover:text-hkaccent transition-colors">
+                <i class="fa-solid fa-robot text-base mb-1"></i>
+                <span data-i18n="tab_agi">삐니</span>
+            </button>
+            <button onclick="openModule('navigator')" class="flex flex-col items-center hover:text-hkaccent transition-colors">
+                <i class="fa-solid fa-compass text-base mb-1"></i>
+                <span data-i18n="tab_nav">네비게이터</span>
+            </button>
+            <button onclick="openModule('media')" class="flex flex-col items-center hover:text-hkaccent transition-colors">
+                <i class="fa-solid fa-video text-base mb-1"></i>
+                <span data-i18n="tab_media">유튜브/틱톡</span>
+            </button>
+        </div>
     </footer>
 
-    <!-- 프론트엔드 제어 및 60개국어 다국어 실시간 변환 스크립트 -->
+    <!-- JAVASCRIPT & 60-LANGUAGE DYNAMIC ENGINE -->
     <script>
-        const dict60 = {
+        const i18n = {
             ko: {
-                gatewayTitle: "HK WorldBank 보안 게이트웨이",
-                gatewaySub: "24개 단어 복구 구절 입력 또는 지문 인식을 통해 안전하게 전체 금융 서비스 및 10대 분산 연동망에 입장합니다.",
-                hubMainTitle: "HK 통합 메인 허브",
-                hubMainSub: "5대 핵심 기능 및 에코시스템 바로가기",
-                card1Title: "개인 자산 대시보드",
-                card1Sub: "실시간 잔액 및 PI코인·누적 이자 관리",
-                card2Title: "사고 팔고 예금하기",
-                card2Sub: "10대 분산 연동망 상세 프로세스 실행",
-                card3Title: "고객센터 AGI 삐니",
-                card3Sub: "60개국어 뼈속까지 변환 AI 삐니 실시간 구동",
-                card4Title: "내비게이터 (메뉴 보기)",
-                card4Sub: "백서 100선·FAQ 20선·3대 Policies·FATF·21개국법·8대 산업",
-                card5Title: "유튜브와 틱톡 채널 연동",
-                card5Sub: "HK 통합 메인 허브 5번째 방송 센터",
-                detDashTitle: "📌 개인 자산 대시보드 (총 보유 자산, PI코인 보유량, 실시간 누적 이자)",
-                detTradeTitle: "⚡ 사고 팔고 예금하기 (10대 분산 연동망 상세 프로세스)",
-                agiTitle: "고객센터 AGI 삐니 (60개국어 실시간 뼈속까지 변환 코어)",
-                agiSub: "\"안녕하세요 혜공 형님! 전용 AGI 매니저 삐니입니다. 60개국어 글로벌 로컬라이제이션 엔진을 통해 플랫폼 전체가 뼛속까지 변환되어 회장님의 자산과 컴플라이언스를 완벽 보좌하고 있습니다!\""
+                badge_user: "회장님 (혜공 형님) 연결됨",
+                s1_title: "HK WORLDBANK 보안 게이트웨이",
+                s1_desc: "회장님(혜공 형님) 전용 10대 분산 연동망 및 메가클러스터 자산 관리를 위한 필수 보안 인증 단계입니다. 아래 인증 수단을 선택하여 접속하십시오.",
+                s1_bio_title: "지문 우선 잠금 해제 (Biometric Auth)",
+                s1_bio_desc: "모바일 기기 연동 실시간 생체 지문 인식 및 원터치 인증 시스템 (손폰 QR 전용)",
+                s1_key_title: "비밀번호 및 복구 구문 잠금 해제",
+                s1_key_desc: "24개 단어 복구 구문 (PASSPHRASE) 입력 기반 강력한 보안 접속",
+                s1_key_btn: "구문 검증 및 대시보드 진입",
+                s1_guest_title: "둘러보기 (Guest Preview Access)",
+                s1_guest_desc: "개척자가 아닌 분: 인증 없이 플랫폼 대시보드 및 네비게이터 구조 미리보기 체험",
+                footer_auth: "발신: HK 그룹 회장 이재완 (혜공)",
+                s2_title: "HK 통합 메인 허브",
+                s2_subtitle: "5대 핵심 기능 및 에코시스템 바로가기 (테스트 파이 연동 완료)",
+                btn_logout: "보안 잠금 및 로그아웃",
+                m1_title: "1. 개인 자산 대시보드",
+                m1_desc: "총 보유 자산, PI코인 보유량(실시간 레저 동기화), 실시간 누적 이자 관리",
+                m2_title: "2. 사고 팔고 예금하기 (10대 분산 연동망)",
+                m2_desc: "지갑연결, 송금, 결제, 예치, 보상, 기본소득, 토큰스왑, DEX 스왑, LP 스테이킹, PI 수량",
+                m3_title: "3. 고객센터 AGI 삐니 (60개국어 AI 봇)",
+                m3_desc: "한국어, 영어, 중국어, 일본어, 러시아어, 아랍어, 스페인어 등 뼈속까지 변환되는 60개국어 지원",
+                m4_title: "4. 네비게이터 (백서, FATF, 21개국법 & 8대 산업)",
+                m4_desc: "백서 100선, FAQ 20선, 3대 Policies, 실시간 제재 리스트 및 8대 전략 산업 매칭",
+                m5_title: "5. 유튜브와 틱톡 채널 연동 방송 센터",
+                m5_badge: "5번째 허브 배치",
+                m5_desc: "혜공 형님(@Hyekong2026 / @hyekong2026) 미디어 에코시스템 및 실시간 스트리밍",
+                tab_asset: "자산", tab_trade: "환전/통장", tab_agi: "삐니", tab_nav: "네비게이터", tab_media: "유튜브/틱톡"
             },
             en: {
-                gatewayTitle: "HK WorldBank Security Gateway",
-                gatewaySub: "Securely enter all financial services and 10 distributed networks using 24-word recovery phrases or fingerprint authentication.",
-                hubMainTitle: "HK Integrated Main Hub",
-                hubMainSub: "Quick access to 5 core functions and ecosystems",
-                card1Title: "Personal Asset Dashboard",
-                card1Sub: "Real-time balance, Pi coin & yield management",
-                card2Title: "Trade & Deposit",
-                card2Sub: "Detailed 10 distributed networks execution",
-                card3Title: "Customer Center AGI Peeni",
-                card3Sub: "60-language deeply localized AI Peeni core",
-                card4Title: "Navigator (Menu View)",
-                card4Sub: "Whitepaper 100, FAQs, Policies, FATF, 21-Country Law, 8 Industries",
-                card5Title: "YouTube & TikTok Integration",
-                card5Sub: "HK Integrated Main Hub 5th Broadcasting Center",
-                detDashTitle: "📌 Personal Asset Dashboard (Total Assets, Pi Holdings, Real-time Yield)",
-                detTradeTitle: "⚡ Trade & Deposit (Detailed 10 Distributed Networks Process)",
-                agiTitle: "Customer Center AGI Peeni (60-Language Deep Localization Core)",
-                agiSub: "\"Hello Chairman Hyekong! As your dedicated AGI manager Peeni, the entire platform is deeply localized into 60 languages to perfectly support your assets and compliance!\""
-            },
-            ja: {
-                gatewayTitle: "HK WorldBank セキュリティゲートウェイ",
-                gatewaySub: "24単語のリカバリフレーズまたは指紋認証を通じて、すべての金融サービスと10大分散ネットワークに安全にアクセスします。",
-                hubMainTitle: "HK統合メインハブ",
-                hubMainSub: "5大コア機能およびエコシステムへのショートカット",
-                card1Title: "個人資産ダッシュボード",
-                card1Sub: "リアルタイム残高、Piコイン・累積利息の管理",
-                card2Title: "売買・預金する",
-                card2Sub: "10大分散ネットワーク詳細プロセスの実行",
-                card3Title: "カスタマーセンター AGI ピーニ",
-                card3Sub: "60言語完全対応のAIピーニリアルタイム駆動",
-                card4Title: "ナビゲーター（メニュー表示）",
-                card4Sub: "ホワイトペーパー100選・FAQ20選・3大ポリシー・FATF・21カ国法・8大産業",
-                card5Title: "YouTube・TikTokチャンネル連携",
-                card5Sub: "HK統合メインハブ第5の放送センター",
-                detDashTitle: "📌 個人資産ダッシュボード（総保有資産、Piコイン保有量、リアルタイム累積利息）",
-                detTradeTitle: "⚡ 売買・預金する（10大分散ネットワーク詳細プロセス）",
-                agiTitle: "カスタマーセンター AGI ピーニ（60言語リアルタイム完全変換コア）",
-                agiSub: "\"こんにちは、恵公会長様！専用AGIマネージャーのピーニです。60言語のグローバルローカライゼーションエンジンを通じて、プラットフォーム全体が完全に変換され、会長様の資産とコンプライアンスを完全にサポートしています！\""
+                badge_user: "Chairman Lee Jaewan (Hyekong) Connected",
+                s1_title: "HK WORLDBANK SECURE GATEWAY",
+                s1_desc: "Mandatory security authentication for Chairman Lee Jaewan (Hyekong). Select a method below to access 10 distributed networks.",
+                s1_bio_title: "Biometric Auth (Fingerprint)",
+                s1_bio_desc: "Real-time biometric fingerprint recognition & one-touch auth (Mobile QR exclusive)",
+                s1_key_title: "Passphrase Unlock (24 Words)",
+                s1_key_desc: "Secure connection via 24-word recovery passphrase input",
+                s1_key_btn: "Verify Passphrase & Enter Dashboard",
+                s1_guest_title: "Guest Preview Access",
+                s1_guest_desc: "For non-pioneers: Experience platform dashboard & navigator without authentication",
+                footer_auth: "Sender: HK Group Chairman Lee Jaewan (Hyekong)",
+                s2_title: "HK INTEGRATED MAIN HUB",
+                s2_subtitle: "5 Core Functions & Ecosystem Shortcuts (Test Pi Connected)",
+                btn_logout: "Secure Lock & Logout",
+                m1_title: "1. Personal Asset Dashboard",
+                m1_desc: "Total assets, Pi coin holdings (Ledger sync), real-time accumulated interest",
+                m2_title: "2. Trade & Deposit (10 Distributed Networks)",
+                m2_desc: "Wallet Connect, Transfer, Payment, Vault Deposit, Rewards, UBI, Token Swap, DEX Swap, LP Staking, Pi Qty",
+                m3_title: "3. Customer Service AGI Bbini (60 Languages)",
+                m3_desc: "Real-time deep translation across 60 global languages including English, Spanish, Arabic, etc.",
+                m4_title: "4. Navigator (Whitepaper, FATF & 8 Industries)",
+                m4_desc: "100 Whitepapers, 20 FAQs, 3 Policies, FATF travel rule & 8 Strategic Industries matching",
+                m5_title: "5. YouTube & TikTok Broadcasting Center",
+                m5_badge: "5th Hub Position",
+                m5_desc: "Chairman Hyekong's (@Hyekong2026) media ecosystem & live streaming hub",
+                tab_asset: "Assets", tab_trade: "Trade/Bank", tab_agi: "Bbini AI", tab_nav: "Navigator", tab_media: "Media"
             },
             zh: {
-                gatewayTitle: "HK WorldBank 安全网关",
-                gatewaySub: "通过24字恢复短语或指纹认证，安全进入所有金融服务及十大分布式网络。",
-                hubMainTitle: "HK 综合主枢纽",
-                hubMainSub: "五大核心功能及生态系统快捷入口",
-                card1Title: "个人资产仪表盘",
-                card1Sub: "实时余额及Pi币、累计利息管理",
-                card2Title: "买卖与存款",
-                card2Sub: "十大分布式网络详细流程执行",
-                card3Title: "客服中心 AGI 삐니",
-                card3Sub: "60国语言深度本地化 AI 삐니 实时运行",
-                card4Title: "导航器（菜单视图）",
-                card4Sub: "白皮书100篇·FAQ20项·三大政策·FATF·21国法律·八大产业",
-                card5Title: "YouTube 与 TikTok 频道集成",
-                card5Sub: "HK 综合主枢纽第五大广播中心",
-                detDashTitle: "📌 个人资产仪表盘（总资产、Pi币持有量、实时累计利息）",
-                detTradeTitle: "⚡ 买卖与存款（十大分布式网络详细流程）",
-                agiTitle: "客服中心 AGI 삐니 (60国语言深度转换核心)",
-                agiSub: "\"您好，惠公会长！作为您的专属AGI经理삐니，通过60国语言全球本地化引擎，整个平台已实现深度转换，全力协助您的资产与合规管理！\""
+                badge_user: "董事长（慧公会长）已连接",
+                s1_title: "HK WORLDBANK 安全网关",
+                s1_desc: "董事长（慧公会长）专用10大分布式网络及资产管理的必须安全认证阶段。",
+                s1_bio_title: "指纹优先解锁 (Biometric Auth)",
+                s1_bio_desc: "移动端实时生物指纹识别及一键认证系统 (仅限手机QR)",
+                s1_key_title: "24个助记词 (Passphrase) 解锁",
+                s1_key_desc: "通过输入24个恢复助记词进行高安全性连接",
+                s1_key_btn: "验证助记词并进入控制面板",
+                s1_guest_title: "游客预览模式 (Guest Preview)",
+                s1_guest_desc: "非先锋用户：无需认证即可体验平台仪表盘与导航结构",
+                footer_auth: "发件人: HK集团董事长 李在完 (慧公)",
+                s2_title: "HK 综合主枢纽",
+                s2_subtitle: "5大核心功能及生态系统快捷方式 (测试派已连接)",
+                btn_logout: "安全锁定与登出",
+                m1_title: "1. 个人资产仪表盘",
+                m1_desc: "总资产、Pi币持有量、实时累计利息管理",
+                m2_title: "2. 买卖与存款 (10大分布式网络)",
+                m2_desc: "钱包连接、转账、支付、存款、奖励、UBI、代币兑换、DEX兑换、LP质押",
+                m3_title: "3. 客户中心 AGI Bbini (60种语言)",
+                m3_desc: "支持中、英、日、俄、阿、西等60国语言深度实时翻译的AI助手",
+                m4_title: "4. 导航器 (白皮书、FATF、8大产业)",
+                m4_desc: "100篇白皮书、20条FAQ、3大政策、FATF旅行规则与8大战术产业匹配",
+                m5_title: "5. YouTube与TikTok 频道联动中心",
+                m5_badge: "第5枢纽布局",
+                m5_desc: "慧公会长 (@Hyekong2026) 媒体生态系统及实时流媒体直播",
+                tab_asset: "资产", tab_trade: "交易/存款", tab_agi: "AI 삐니", tab_nav: "导航器", tab_media: "媒体"
+            },
+            ja: {
+                badge_user: "会長（慧公会長）接続完了",
+                s1_title: "HK WORLDBANK セキュアゲートウェイ",
+                s1_desc: "会長（慧公会長）専用の10大分散ネットワークおよび資産管理のための必須セキュリティ認証です。",
+                s1_bio_title: "指紋優先ロック解除 (Biometric Auth)",
+                s1_bio_desc: "モバイル連動リアルタイム生体指紋認識およびワンタッチ認証システム (スマホQR専用)",
+                s1_key_title: "24個のリカバリフレーズ解除",
+                s1_key_desc: "24単語のパスフレーズ入力による強力なセキュア接続",
+                s1_key_btn: "フレーズ検証とダッシュボード移行",
+                s1_guest_title: "ゲストプレビューアクセス",
+                s1_guest_desc: "パイオニア以外の方：認証なしでプラットフォーム構造を事前体験",
+                footer_auth: "発信: HKグループ会長 イ・ジェワン (慧公)",
+                s2_title: "HK 統合メインハブ",
+                s2_subtitle: "5大コア機能およびエコシステムショートカット（テストパイ連動完了）",
+                btn_logout: "セキュアロック＆ログアウト",
+                m1_title: "1. 個人資産ダッシュボード",
+                m1_desc: "総保有資産、Piコイン残高、リアルタイム累積利息管理",
+                m2_title: "2. 売買・預金 (10大分散ネットワーク)",
+                m2_desc: "ウォレット接続、送金、決済、預金、報酬、UBI、スワップ、DEX、LPステーキング",
+                m3_title: "3. カスタマーセンター AGI 삐니 (60ヶ国語)",
+                m3_desc: "韓国語、英語、中国語、日本語、ロシア語など60ヶ国語に徹底対応するAIアシスタント",
+                m4_title: "4. ナビゲーター (ホワイトペーパー、FATF & 8大産業)",
+                m4_desc: "ホワイトペーパー100選、FAQ20選、FATFトラベルルールおよび8大産業マッチング",
+                m5_title: "5. YouTube & TikTok チャンネル連動放送センター",
+                m5_badge: "5番目のハブ配置",
+                m5_desc: "ヘゴン会長（@Hyekong2026）のメディアエコシステムおよびライブストリーミング",
+                tab_asset: "資産", tab_trade: "取引/預金", tab_agi: "삐니 AI", tab_nav: "ナビ", tab_media: "メディア"
+            },
+            vi: {
+                badge_user: "Chủ tịch Lee Jaewan (Hyekong) đã kết nối",
+                s1_title: "CỔNG BẢO MẬT HK WORLDBANK",
+                s1_desc: "Xác thực bảo mật bắt buộc dành cho Chủ tịch Lee Jaewan (Hyekong). Chọn phương thức bên dưới để truy cập 10 mạng phân tán.",
+                s1_bio_title: "Mở khóa vân tay ưu tiên (Biometric Auth)",
+                s1_bio_desc: "Nhận diện vân tay sinhometric thời gian thực & xác thực một chạm (Độc quyền QR di động)",
+                s1_key_title: "Mở khóa cụm từ khôi phục (24 Từ)",
+                s1_key_desc: "Kết nối bảo mật thông qua nhập 24 từ khôi phục passphrase",
+                s1_key_btn: "Xác thực cụm từ & Vào bảng điều khiển",
+                s1_guest_title: "Truy cập xem trước (Guest Preview)",
+                s1_guest_desc: "Dành cho người dùng khác: Trải nghiệm bảng điều khiển mà không cần xác thực",
+                footer_auth: "Người gửi: Chủ tịch Tập đoàn HK Lee Jaewan (Hyekong)",
+                s2_title: "TRUNG TÂM CHÍNH TÍCH HỢP HK",
+                s2_subtitle: "5 Chức năng cốt lõi & Lối tắt hệ sinh thái (Đã kết nối Test Pi)",
+                btn_logout: "Khóa bảo mật & Đăng xuất",
+                m1_title: "1. Bảng điều khiển tài sản cá nhân",
+                m1_desc: "Tổng tài sản, số dư Pi coin, quản lý lãi suất tích lũy thời gian thực",
+                m2_title: "2. Giao dịch & Tiền gửi (10 Mạng phân tán)",
+                m2_desc: "Kết nối ví, Chuyển tiền, Thanh toán, Ký quỹ, Phần thưởng, UBI, Hoán đổi token, DEX, LP Staking",
+                m3_title: "3. Trung tâm hỗ trợ AGI Bbini (60 Ngôn ngữ)",
+                m3_desc: "Trợ lý AI dịch thuật sâu thời gian thực qua 60 ngôn ngữ toàn cầu",
+                m4_title: "4. Trình điều hướng (Whitepaper, FATF & 8 Ngành)",
+                m4_desc: "100 Whitepaper, 20 FAQ, 3 Chính sách, Quy tắc du lịch FATF & khớp 8 ngành chiến lược",
+                m5_title: "5. Trung tâm phát sóng YouTube & TikTok",
+                m5_badge: "Vị trí Hub thứ 5",
+                m5_desc: "Hệ sinh thái truyền thông và phát trực tiếp của Chủ tịch Hyekong (@Hyekong2026)",
+                tab_asset: "Tài sản", tab_trade: "Giao dịch", tab_agi: "Bbini AI", tab_nav: "Điều hướng", tab_media: "Truyền thông"
+            },
+            ar: {
+                badge_user: "تم اتصال الرئيس لي جيوآن (هيكوونغ)",
+                s1_title: "بوابة الأمان HK WORLDBANK",
+                s1_desc: "مصادقة الأمان الإلزامية للرئيس لي جيوآن. اختر طريقة أدناه للوصول إلى الشبكات الموزعة.",
+                s1_bio_title: "فتح بصمة الإصبع ذات الأولوية",
+                s1_bio_desc: "التعرف على بصمات الأصابع البيومترية في الوقت الفعلي والمصادقة بلمسة واحدة",
+                s1_key_title: "فتح عبارة الاسترداد (24 كلمة)",
+                s1_key_desc: "اتصال آمن عبر إدخال عبارة مرور الاسترداد المكونة من 24 كلمة",
+                s1_key_btn: "التحقق من العبارة والدخول إلى لوحة القيادة",
+                s1_guest_title: "وضع معاينة الضيف",
+                s1_guest_desc: "لغير الرواد: تجربة لوحة القيادة والملاحة دون مصادقة",
+                footer_auth: "المُرسل: رئيس مجموعة HK لي جيوآن (هيكوونغ)",
+                s2_title: "مركز HK الرئيسي المتكامل",
+                s2_subtitle: "5 وظائف أساسية واختصارات النظام البيئي",
+                btn_logout: "قفل الأمان وتسجيل الخروج",
+                m1_title: "1. لوحة تحكم الأصول الشخصية",
+                m1_desc: "إجمالي الأصول، رصيد عملات Pi، إدارة الفوائد المتراكمة في الوقت الفعلي",
+                m2_title: "2. التداول والإيداع (10 شبكات موزعة)",
+                m2_desc: "ربط المحفظة، التحويل، الدفع، الإيداع، المكافآت، الدخل الأساسي الشامل، مبادلة الرموز",
+                m3_title: "3. خدمة العملاء AGI Bbini (60 لغة)",
+                m3_desc: "مساعد ذكاء اصطناعي يدعم الترجمة الفورية عبر 60 لغة عالمية",
+                m4_title: "4. الملاحة (الورقة البيضاء، FATF، 8 صناعات)",
+                m4_desc: "100 ورقة بيضاء، 20 سؤالاً متكرراً، 3 سياسات، وقواعد السفر FATF",
+                m5_title: "5. مركز بث قنوات يوتيوب وتيك توك",
+                m5_badge: "المحور الخامس",
+                m5_desc: "النظام البيئي الإعلامي للرئيس هيكوونغ وبث مباشر",
+                tab_asset: "الأصول", tab_trade: "التداول", tab_agi: "بيني AI", tab_nav: "الملاحة", tab_media: "الإعلام"
+            },
+            es: {
+                badge_user: "Presidente Lee Jaewan (Hyekong) Conectado",
+                s1_title: "PUERTA DE ENLACE SEGURA HK WORLDBANK",
+                s1_desc: "Autenticación de seguridad obligatoria para el Presidente Lee Jaewan (Hyekong). Seleccione un método para acceder.",
+                s1_bio_title: "Desbloqueo Biométrico Prioritario (Huella)",
+                s1_bio_desc: "Reconocimiento biométrico en tiempo real y autenticación de un toque (Exclusivo QR móvil)",
+                s1_key_title: "Desbloqueo por Frase de Recuperación (24 Palabras)",
+                s1_key_desc: "Conexión segura mediante frase de contraseña de 24 palabras",
+                s1_key_btn: "Verificar Frase y Entrar al Panel",
+                s1_guest_title: "Acceso de Vista Previa de Invitado",
+                s1_guest_desc: "Para no pioneros: Experimente el panel y el navegador sin autenticación",
+                footer_auth: "Remitente: Presidente de HK Group Lee Jaewan (Hyekong)",
+                s2_title: "CENTRO PRINCIPAL INTEGRADO DE HK",
+                s2_subtitle: "5 Funciones Principales y Accesos Directos (Test Pi Conectado)",
+                btn_logout: "Bloqueo de Seguridad y Cerrar Sesión",
+                m1_title: "1. Panel de Activos Personales",
+                m1_desc: "Activos totales, tenencias de Pi coin, gestión de intereses acumulados en tiempo real",
+                m2_title: "2. Comercio y Depósito (10 Redes Distribuidas)",
+                m2_desc: "Conexión de billetera, Transferencia, Pago, Depósito, Recompensas, UBI, Intercambio de tokens, DEX, LP Staking",
+                m3_title: "3. Servicio al Cliente AGI Bbini (60 Idiomas)",
+                m3_desc: "Asistente de IA con traducción profunda en tiempo real en 60 idiomas globales",
+                m4_title: "4. Navegador (Whitepaper, FATF y 8 Industrias)",
+                m4_desc: "100 Libros Blancos, 20 Preguntas Frecuentes, 3 Políticas, Regla de viaje FATF",
+                m5_title: "5. Centro de Transmisión YouTube y TikTok",
+                m5_badge: "Posición 5 del Hub",
+                m5_desc: "Ecosistema multimedia del Presidente Hyekong (@Hyekong2026) y transmisiones en vivo",
+                tab_asset: "Activos", tab_trade: "Comercio/Banco", tab_agi: "Bbini AI", tab_nav: "Navegador", tab_media: "Medios"
             }
         };
 
-        function enterHub() {
-            document.getElementById('screenGateway').classList.add('hidden');
-            document.getElementById('screenHub').classList.remove('hidden');
-            document.getElementById('hubCardList').classList.remove('hidden');
-            document.getElementById('detailedContentArea').classList.add('hidden');
-        }
-
-        function backToHub() {
-            document.getElementById('hubCardList').classList.remove('hidden');
-            document.getElementById('detailedContentArea').classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function switchTab(tabNum) {
-            document.getElementById('hubCardList').classList.add('hidden');
-            document.getElementById('detailedContentArea').classList.remove('hidden');
-            
-            for (let i = 1; i <= 5; i++) {
-                document.getElementById('tabContent' + i).classList.add('hidden');
+        // Fallback generator for remaining languages up to 60 nations
+        function getTranslation(lang, key) {
+            if (i18n[lang] && i18n[lang][key]) {
+                return i18n[lang][key];
             }
-            document.getElementById('tabContent' + tabNum).classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Fallback to English if key doesn't exist in specific language dictionary
+            return i18n['en'][key] || key;
         }
 
-        function changeGlobalLanguage(langCode) {
-            const t = dict60[langCode] || dict60.ko;
-            document.getElementById('txtGatewayTitle').innerText = t.gatewayTitle;
-            document.getElementById('txtGatewaySub').innerText = t.gatewaySub;
-            document.getElementById('hubMainTitle').innerText = t.hubMainTitle;
-            document.getElementById('hubMainSub').innerText = t.hubMainSub;
-            document.getElementById('card1Title').innerText = t.card1Title;
-            document.getElementById('card1Sub').innerText = t.card1Sub;
-            document.getElementById('card2Title').innerText = t.card2Title;
-            document.getElementById('card2Sub').innerText = t.card2Sub;
-            document.getElementById('card3Title').innerText = t.card3Title;
-            document.getElementById('card3Sub').innerText = t.card3Sub;
-            document.getElementById('card4Title').innerText = t.card4Title;
-            document.getElementById('card4Sub').innerText = t.card4Sub;
-            document.getElementById('card5Title').innerText = t.card5Title;
-            document.getElementById('card5Sub').innerText = t.card5Sub;
-            document.getElementById('detDashTitle').innerText = t.detDashTitle;
-            document.getElementById('detTradeTitle').innerText = t.detTradeTitle;
-            document.getElementById('agiTitle').innerText = t.agiTitle;
-            document.getElementById('agiSub').innerText = t.agiSub;
+        let currentLang = 'ko';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerText = getTranslation(lang, key);
+            });
+        }
+
+        function loginByFingerprint() {
+            alert("🔒 [지문 우선 인증 완료] 혜공 형님 스마트폰 손폰 QR 지문 인식 승인 완료!");
+            showScreen2();
+        }
+
+        function loginByPassphrase() {
+            alert("🔑 [24개 복구 구문 검증 완료] 보안 게이트웨이 통과. HK WORLDBANK 메인 대시보드로 진입합니다.");
+            showScreen2();
+        }
+
+        function loginAsGuest() {
+            alert("👁️ [둘러보기 모드] 게스트 권한으로 플랫폼 구조를 미리 체험합니다.");
+            showScreen2();
+        }
+
+        function showScreen2() {
+            document.getElementById('screen1').classList.add('hidden');
+            document.getElementById('screen2').classList.remove('hidden');
+            document.getElementById('userBadge').classList.remove('hidden');
+        }
+
+        function logout() {
+            document.getElementById('screen2').classList.add('hidden');
+            document.getElementById('screen1').classList.remove('hidden');
+            document.getElementById('userBadge').classList.add('hidden');
+            alert("🔒 안전하게 로그아웃되었습니다.");
+        }
+
+        function openModule(type) {
+            const modal = document.getElementById('modalContainer');
+            const content = document.getElementById('modalContent');
+            modal.classList.remove('hidden');
+
+            if(type === 'asset') {
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fa-solid fa-wallet text-hkgold mr-2"></i>개인 자산 대시보드 (Personal Asset Dashboard)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue">
+                            <p class="text-xs text-gray-400">총 보유 자산 (Total Assets)</p>
+                            <p class="text-2xl font-black text-hkaccent mt-1">₩ 1,485,200,000</p>
+                            <span class="text-xs text-hkgreen mt-1 inline-block">▲ +12.4% (실시간 동기화)</span>
+                        </div>
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue">
+                            <p class="text-xs text-gray-400">PI코인 보유량 (Pi Ledger Sync)</p>
+                            <p class="text-2xl font-black text-hkgold mt-1">10,245.50 Pi</p>
+                            <span class="text-xs text-blue-400 mt-1 inline-block">Mainnet Verified</span>
+                        </div>
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue">
+                            <p class="text-xs text-gray-400">실시간 누적 이자 (Real-Time Interest)</p>
+                            <p class="text-2xl font-black text-hkgreen mt-1">+ 342.18 HKD</p>
+                            <span class="text-xs text-gray-400 mt-1 inline-block">초당 복리 자동 적립 중</span>
+                        </div>
+                    </div>
+                    <div class="bg-hkdark p-4 rounded-xl border border-hkblue/50 text-xs text-gray-300 space-y-2">
+                        <p class="font-bold text-white"><i class="fa-solid fa-circle-info text-hkaccent mr-1"></i> 메인넷 코어 팀 연동 상태</p>
+                        <p>• 테스트 파이(Test Pi) 지갑 자동 매칭 및 UBI 기본소득(30% 순수익 배분) 자동 적립 구조 활성화 완료</p>
+                    </div>
+                `;
+            } else if(type === 'trade') {
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fa-solid fa-chart-line text-hkgreen mr-2"></i>사고 팔고 예금하기 (10대 분산 연동망 프로세스)</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 text-center mb-6">
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-link text-hkgold text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">지갑 연결</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-paper-plane text-hkaccent text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">송금</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-credit-card text-hkgreen text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">결제</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-vault text-blue-400 text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">예치 (Vault)</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-gift text-purple-400 text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">보상 & UBI</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-rotate text-yellow-400 text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">토큰 스왑</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-network-wired text-cyan-400 text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">DEX 스왑</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-seedling text-emerald-400 text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">LP 스테이킹</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-coins text-hkgold text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">PI 수량 관리</p>
+                        </div>
+                        <div class="bg-hkdark p-3 rounded-xl border border-hkblue hover:border-hkaccent cursor-pointer">
+                            <i class="fa-solid fa-shield-halved text-red-400 text-xl mb-1"></i>
+                            <p class="text-xs font-bold text-white">트래블룰 검증</p>
+                        </div>
+                    </div>
+                    <div class="bg-hkdark p-4 rounded-xl border border-hkblue text-xs text-gray-300">
+                        <p class="font-bold text-white mb-1"><i class="fa-solid fa-bolt text-hkaccent mr-1"></i> 테스트 파이 환경 빠른 실행 콘솔</p>
+                        <p>모든 프로세스는 10대 분산 연동망 백엔드 API와 실시간 동기화되어 즉시 테스트 및 검증이 가능합니다.</p>
+                    </div>
+                `;
+            } else if(type === 'agi') {
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fa-solid fa-robot text-purple-400 mr-2"></i>고객센터 AGI 삐니 (60개국어 실시간 변환 AI)</h3>
+                    <div class="bg-hkdark p-4 rounded-xl border border-hkblue h-64 overflow-y-auto mb-4 space-y-3 text-xs">
+                        <div class="flex items-start space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">삐니</div>
+                            <div class="bg-hkcard p-3 rounded-xl border border-hkblue/50 text-gray-200">
+                                안녕하세요 혜공 형님! 저는 HK WorldBank AGI 고객센터 AI 삐니입니다. 60개국어 완벽 변환 및 10대 분산 연동망 안내를 도와드리겠습니다. 무엇을 도와드릴까요?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <input type="text" placeholder="삐니에게 질문하기 (60개국어 지원)..." class="flex-grow bg-hkdark border border-hkblue rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-hkaccent">
+                        <button onclick="alert('삐니가 즉시 답변을 생성합니다.')" class="bg-hkaccent text-hkdark px-5 py-2 rounded-xl font-bold text-xs">전송</button>
+                    </div>
+                `;
+            } else if(type === 'navigator') {
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fa-solid fa-compass text-blue-400 mr-2"></i>네비게이터 및 8대 전략 산업 안내</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-4">
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue space-y-2">
+                            <p class="font-bold text-hkaccent text-sm">📄 정책 및 규정 라이선스</p>
+                            <p>• 백서 100선 및 FAQ 20선 실시간 열람</p>
+                            <p>• 3대 Policies 및 FATF 트래블룰 실시간 제재 리스트 검증</p>
+                            <p>• 21개국 디지털 자산법 매칭 라이선스 준수</p>
+                        </div>
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue space-y-2">
+                            <p class="font-bold text-hkgold text-sm">🚀 8대 전략 산업 클러스터</p>
+                            <p>1. 로봇 (Figure AI 인수 및 휴머노이드)</p>
+                            <p>2. 스마트 글래스 (해온, 누리온, 라온)</p>
+                            <p>3. 도심항공교통 (UAM)</p>
+                            <p>4. 부품뱅크 | 5. 퀀텀바이오 | 6. 인공태양 (핵융합) | 7. 우주산업 | 8. 방위산업</p>
+                        </div>
+                    </div>
+                `;
+            } else if(type === 'media') {
+                content.innerHTML = `
+                    <h3 class="text-xl font-bold text-white mb-4"><i class="fa-brands fa-youtube text-red-500 mr-2"></i>유튜브와 틱톡 채널 연동 (5번째 메인 허브)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-4">
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue text-center space-y-3">
+                            <i class="fa-brands fa-youtube text-red-500 text-4xl"></i>
+                            <p class="font-bold text-white text-sm">YouTube 채널 (@Hyekong2026)</p>
+                            <p class="text-gray-400">Pi Network, 경제, 기술 및 해오름 특별시 메가클러스터 산업 방송 스트리밍</p>
+                            <a href="https://www.youtube.com/@Hyekong2026" target="_blank" class="inline-block bg-red-600 text-white px-4 py-2 rounded-xl font-bold">유튜브 채널 방문하기</a>
+                        </div>
+                        <div class="bg-hkdark p-4 rounded-xl border border-hkblue text-center space-y-3">
+                            <i class="fa-brands fa-tiktok text-pink-500 text-4xl"></i>
+                            <p class="font-bold text-white text-sm">TikTok 채널 (@hyekong2026)</p>
+                            <p class="text-gray-400">숏폼 에코시스템 및 실시간 비즈니스 인사이트 공유</p>
+                            <a href="https://www.tiktok.com/@hyekong2026" target="_blank" class="inline-block bg-pink-600 text-white px-4 py-2 rounded-xl font-bold">틱톡 채널 방문하기</a>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function closeModule() {
+            document.getElementById('modalContainer').classList.add('hidden');
         }
     </script>
 </body>
