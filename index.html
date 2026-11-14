@@ -172,13 +172,12 @@
             margin-top: 8px;
         }
 
+        /* 3장 네비게이터 & 미디어 분할 레이아웃 */
         .media-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 20px;
         }
-        
-        .media-main { grid-column: span 1; }
 
         .philosophy-card {
             background-color: var(--surface-color);
@@ -226,6 +225,7 @@
             line-height: 1.5;
         }
 
+        /* 공통 모달 스타일 */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -320,6 +320,23 @@
             transform: translateY(-2px);
         }
 
+        .nav-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--gold-secondary);
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .nav-btn:hover {
+            background: #1a2970;
+        }
+
         .chat-container {
             display: flex;
             flex-direction: column;
@@ -395,8 +412,8 @@
         </div>
     </header>
 
-    <!-- 1장: 보안인증 및 진입 (자유 진입) -->
-    <div class="section-group">
+    <!-- 1장: 보안인증 및 진입 -->
+    <div class="section-group" id="sec1">
         <div class="section-title">🔒 1장. 보안인증 및 시스템 진입</div>
         <div class="grid-container">
             <div class="card" onclick="openProcessModal('지문 인식 승인', ['바이오메트릭 센서 핸들러 호출', '지문 데이터 암호화 해시 검증', '마스터 세션 토큰 즉시 발급'])">
@@ -418,8 +435,8 @@
         </div>
     </div>
 
-    <!-- 2장: 자산관리 및 금융 모듈 (KYC/KYB 인증 필수 + 이자율/수익률 표기) -->
-    <div class="section-group">
+    <!-- 2장: 자산관리 및 금융 모듈 -->
+    <div class="section-group" id="sec2">
         <div class="section-title">💎 2장. 자산관리 및 금융 모듈 <span style="font-size:0.85rem; color:#f59e0b; background:rgba(245,158,11,0.15); padding:3px 10px; border-radius:6px; margin-left:10px;">KYC / KYB 인증 필수</span></div>
         <div class="grid-container">
             <div class="card" onclick="tryAccessChapter2('1. 지갑연결', ['웹3 브라우저 월렛 객체 탐색', '보안 서명 요청 트랜잭션 생성', '탈중앙화 메인넷 주소 바인딩'])">
@@ -465,21 +482,24 @@
         </div>
     </div>
 
-    <!-- 3장: 고객센터 및 미디어 (자유 진입) -->
-    <div class="section-group">
+    <!-- 3장: 고객센터, 네비게이터 및 미디어 -->
+    <div class="section-group" id="sec3">
         <div class="section-title">🎧 3장. 고객센터, 네비게이터 및 미디어</div>
         <div class="grid-container media-grid">
+            <!-- 삐니 상담 (좌측 큰 카드로 배치) -->
             <div class="card media-main" onclick="openBbiniModal()">
                 <div class="card-header"><span class="card-number" style="background:#10b981; color:white;">ONLINE</span><span class="card-icon">🤖</span></div>
-                <div class="card-body"><h3>고객센터 AGI 삐니 <span class="lang-badge" id="currentLangBadge">한국어</span></h3><p>60개국어 실시간 통번역 및 지능형 24시간 상담</p></div>
+                <div class="card-body"><h3>고객센터 AGI 삐니 <span class="lang-badge" id="currentLangBadge">한국어</span></h3><p>60개국어 실시간 통번역 및 지능형 24시간 상담 지원</p></div>
             </div>
+            <!-- 네비게이터 카드 추가 -->
+            <div class="card" onclick="openNavModal()">
+                <div class="card-header"><span class="card-number" style="background:#3b82f6; color:white;">NAV</span><span class="card-icon">🧭</span></div>
+                <div class="card-body"><h3>네비게이터</h3><p>전체 메뉴 및 원클릭 바로가기 가이드</p></div>
+            </div>
+            <!-- 유튜브 & 틱톡 방송 -->
             <div class="card" onclick="window.open('https://youtube.com/@Hyekong2026', '_blank')">
                 <div class="card-header"><span class="card-number" style="background:#ef4444; color:white;">LIVE</span><span class="card-icon">📺</span></div>
-                <div class="card-body"><h3>유튜브 방송</h3><p>공식 채널 라이브 및 아카이브</p></div>
-            </div>
-            <div class="card" onclick="window.open('https://tiktok.com/@hyekong2026', '_blank')">
-                <div class="card-header"><span class="card-number" style="background:#000000; color:#fff; border:1px solid #33f3eb;">SHORT Labs</span><span class="card-icon">🎬</span></div>
-                <div class="card-body"><h3>틱톡 방송</h3><p>실시간 숏폼 방송 및 글로벌 소통</p></div>
+                <div class="card-body"><h3>유튜브 방송</h3><p>공식 라이브 방송 채널</p></div>
             </div>
         </div>
     </div>
@@ -502,6 +522,30 @@
                 <div class="phil-rate">30%</div>
                 <div class="phil-title">HK 사회재단</div>
                 <div class="phil-desc">사회 환원 적립금 (긴급 투자 시에만 사용)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 네비게이터 모달창 -->
+<div id="navModal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🧭 HK 스마트 네비게이터</h2>
+            <button class="close-btn" onclick="closeNavModal()">&times;</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="nav-btn" onclick="scrollToSection('sec1')">
+                <span>🔒 1장. 보안인증 및 시스템 진입</span>
+                <span>이동 ➔</span>
+            </div>
+            <div class="nav-btn" onclick="scrollToSection('sec2')">
+                <span>💎 2장. 자산관리 및 10대 금융 모듈 (KYC/KYB)</span>
+                <span>이동 ➔</span>
+            </div>
+            <div class="nav-btn" onclick="scrollToSection('sec3')">
+                <span>🎧 3장. AGI 삐니 고객센터 & 라이브 방송</span>
+                <span>이동 ➔</span>
             </div>
         </div>
     </div>
@@ -619,8 +663,13 @@
         }
     }
 
-    function closeKycModal() {
-        document.getElementById('kycModal').style.display = 'none';
+    function closeKycModal() { document.getElementById('kycModal').style.display = 'none'; }
+    function openNavModal() { document.getElementById('navModal').style.display = 'flex'; }
+    function closeNavModal() { document.getElementById('navModal').style.display = 'none'; }
+
+    function scrollToSection(id) {
+        closeNavModal();
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
     function openProcessModal(title, steps) {
@@ -695,7 +744,7 @@
 
     window.onclick = function(event) {
         if(event.target.classList.contains('modal-overlay')) {
-            closeModal(); closePassphraseModal(); closeBbiniModal(); closeKycModal();
+            closeModal(); closePassphraseModal(); closeBbiniModal(); closeKycModal(); closeNavModal();
         }
     }
 </script>
